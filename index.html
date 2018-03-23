@@ -1,0 +1,133 @@
+<html>
+<head>
+  <style type="text/css">
+    body {
+      padding: 50px;
+      margin: 0;
+      font: normal normal 12px/16px Verdana, Arial, sans-serif;
+      background: rgb(30,30,30);
+      background-image: url('https://images.unsplash.com/photo-1483994615145-b85d9d983bd8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4b891656786223f932efcd3472ff7f4b&auto=format&fit=crop&w=1500&q=80');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    header {
+      margin-bottom: 50px;
+    }
+    header button {
+      color: #999;
+      border: 1px solid #f0f0f0;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      font-weight: bolder;
+      letter-spacing: 1px;
+      box-shadow: 0 20px 20px -10px rgba(30,20,30,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button onClick="toggle()">Toggle Style</button>
+  </header>
+
+  <form action="https://gc.synxis.com/rez.aspx" class="bookingForm">
+    <div class="bookingCalendar"></div>
+    <strong class="bookingLegend">Book Your Room</strong>
+    <fieldset>
+      <label for="bookingRange" class="bookingLabel">Dates</label>
+      <label for="bookingRange" class="bookingFieldWrap">
+        <input class="bookingField" type="text" name="range" id="bookingRange" readonly value="3/18/2018 - 3/24/2018"/>
+        <i class="material-icons">date_range</i>
+      </label>
+      <input type="hidden" name="arrive" id="bookingArrive" />
+      <input type="hidden" name="depart" id="bookingDepart" />
+
+      <label for="bookingAdult" class="bookingLabel">Adults</label>
+      <label for="bookingAdult" class="bookingFieldWrap">
+        <select class="bookingField" name="adult" id="bookingAdult">
+          <option value="1">1 Adult</option>
+          <option value="2">2 Adults</option>
+          <option value="3">3 Adults</option>
+          <option value="4">4 Adults</option>
+          <option value="5">5 Adults</option>
+          <option value="6">6 Adults</option>
+          <option value="7">7 Adults</option>
+          <option value="8">8 Adults</option>
+          <option value="9">9 Adults</option>
+          <option value="10">10 Adults</option>
+        </select>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </label>
+
+      <label for="bookingChild" class="bookingLabel">Children</label>
+      <label for="adult" class="bookingFieldWrap">
+        <select class="bookingField" name="child" id="bookingChild">
+          <option value="0">0 Children</option>
+          <option value="1">1 Child</option>
+          <option value="2">2 Children</option>
+          <option value="3">3 Children</option>
+          <option value="4">4 Children</option>
+          <option value="5">5 Children</option>
+          <option value="6">6 Children</option>
+          <option value="7">7 Children</option>
+          <option value="8">8 Children</option>
+          <option value="9">9 Children</option>
+          <option value="10">10 Children</option>
+        </select>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </label>
+
+      <input class="bookingSubmit" type="submit" value="Book Now" />
+      <input type="hidden" name="Hotel" value="78317" />
+      <input type="hidden" name="Chain" value="17448" />
+      <input type="hidden" name="template" value="RBE" />
+      <input type="hidden" name="shell" value="RBE" />
+    </fieldset>
+    <a href="tel:360-555-5555" class="bookingSub phone">360-555-5555</a>
+  </form>
+
+  <!-- Required Libraries -->
+  <link rel="stylesheet" type="text/css" href="./widget.css" />
+  <link rel="stylesheet" type="text/css" href="./daterangepicker.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.16.1/jquery.daterangepicker.min.js"></script>
+  <script>
+    (function($){
+      var format = 'M/D/YYYY';
+      $('#bookingRange').dateRangePicker({
+        autoClose: true,
+      	format: format,
+      	separator: ' - ',
+        showTopbar: false,
+        monthSelect: true,
+        yearSelect: true,
+        startDate: moment().add(1, 'day').format(format),
+        endDate: moment().add(500, 'day').format(format),
+        setValue(range){
+          var dates = range.split(" - "),
+              start = dates[0].trim(),
+              end = dates[1].trim();
+          $('#bookingRange').val(range);
+          $('#bookingArrive').val(start);
+          $('#bookingDepart').val(end);
+        }
+      });
+    }(jQuery));
+
+    function toggle(){
+      var f = document.getElementsByClassName('bookingForm')[0];
+      if(f.classList.contains("long")){
+        f.classList.remove("long");
+      }else{
+        f.classList.add("long");
+      }
+    }
+  </script>
+</body>
+</html>
