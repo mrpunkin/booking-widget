@@ -76,48 +76,13 @@
       <input type="hidden" name="template" value="RBE" />
       <input type="hidden" name="shell" value="RBE" />
     </fieldset>
-    <a href="tel:360-555-5555" class="bookingSub phone">1-800-492-8700</a>
+    <a href="tel:1-800-492-8700" class="bookingSub phone">1-800-492-8700</a>
   </form>
 
   <!-- Required Libraries -->
-  <link rel="stylesheet" type="text/css" href="./widget.css" />
-  <link rel="stylesheet" type="text/css" href="./daterangepicker.min.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.16.1/jquery.daterangepicker.min.js"></script>
+  <script src="./jquery.monarch-booking.js"></script>
   <script>
-    (function($){
-      var format = 'M/D/YYYY';
-      $('#bookingRange').dateRangePicker({
-        inline: true,
-        container: '.bookingForm .bookingCalendar',
-        autoClose: true,
-      	format: format,
-      	separator: ' - ',
-        showTopbar: false,
-        monthSelect: true,
-        yearSelect: true,
-        minDays: 2,
-        startDate: moment().add(1, 'day').format(format),
-        endDate: moment().add(500, 'day').format(format),
-        customArrowPrevSymbol: '<i class="material-icons">arrow_back</i>',
-        customArrowNextSymbol: '<i class="material-icons">arrow_forward</i>',
-        setValue: function(range){
-          var dates = range.split(" - "),
-              start = dates[0].trim(),
-              end = dates[1].trim();
-          $('#bookingRange').val(range);
-          $('#bookingArrive').val(start);
-          $('#bookingDepart').val(end);
-        },
-        hoveringTooltip: function(days, startTime, hoveringTime){
-          var nights = days - 1;
-          return nights + (nights == 1 ? ' night' : ' nights');
-        }
-      });
-    }(jQuery));
-
     function toggle(){
       var f = document.getElementsByClassName('bookingForm')[0];
       if(f.classList.contains("long")){
