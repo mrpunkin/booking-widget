@@ -5,36 +5,22 @@ var MonarchBooking;
       dateFormat: 'M/D/YYYY'
     },
     dependencies: {
-      css: [
-        'daterangepicker.min.css',
-        'widget.css',
-        'https://fonts.googleapis.com/icon?family=Material+Icons'
-      ],
       js: [
         'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.16.1/jquery.daterangepicker.min.js'
       ]
     },
+    instances: [],
 
     init : function(options){
       var _this = this;
       $.extend(this.options, options || {});
       this.loadDependencies().done(function(){
-        _this.setupPicker();
+        _this.buildInstances();
       });
     },
 
     loadDependencies : function(){
-      $.each(this.dependencies.css, function(i, href){
-        $('<link>')
-          .appendTo('head')
-          .attr({
-            type: 'text/css',
-            rel: 'stylesheet',
-            href: href
-          });
-      });
-
       var chain = $.when();
       $.each(this.dependencies.js, function(i, src){
         chain = chain.then(function(){
@@ -44,10 +30,19 @@ var MonarchBooking;
       return chain;
     },
 
-    setupPicker : function(){
-      $('#bookingRange').dateRangePicker({
+    buildInstances : function(){
+      this.instances = $('.bookingForm');
+      var _this = this;
+      $.each(this.instances, function(i,el){
+        _this.setupPicker(el);
+      });
+    },
+
+    setupPicker : function(parent){
+      $parent = $(parent);
+      $parent.find('[name=range]').dateRangePicker({
         inline: true,
-        container: '.bookingForm .bookingCalendar',
+        container: $parent.find('.bookingCalendar'),
         autoClose: true,
         format: this.options.dateFormat,
         separator: ' - ',
@@ -63,9 +58,9 @@ var MonarchBooking;
           var dates = range.split(" - "),
               start = dates[0].trim(),
               end = dates[1].trim();
-          $('#bookingRange').val(range);
-          $('#bookingArrive').val(start);
-          $('#bookingDepart').val(end);
+          $parent.find('[name=range]').val(range);
+          $parent.find('[name=arrive]').val(start);
+          $parent.find('[name=depart]').val(end);
         },
         hoveringTooltip: function(days, startTime, hoveringTime){
           var nights = days - 1;
