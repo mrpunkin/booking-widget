@@ -4,9 +4,9 @@
 Upload [`daterangepicker.min.css`](https://raw.githubusercontent.com/mrpunkin/monarch-widget/master/daterangepicker.min.css), [`jquery.monarch-booking.css`](https://raw.githubusercontent.com/mrpunkin/monarch-widget/master/jquery.monarch-booking.css) and [`jquery.monarch-booking.js`](https://raw.githubusercontent.com/mrpunkin/monarch-widget/master/jquery.monarch-booking.js) to the same publicly accessible directory on the server
 
 ## Step 2:
-Place these lines in the <head> of any pages that will have the booking form, or all pages if you want as it will only run if there is a form. You will need to replace the `/path/to` portion of the paths with the appropriate path to the actual files.
+Place these lines in the `<head>` of any pages that will have the booking form, or all pages if you want as it will only run if there is a form. You will need to replace the `/path/to` portion of the paths with the appropriate path to the actual files.
 
-If placing in the head is not possible, you can place just before the form HTML instead.
+If placing in the `<head>` is not possible, you can place just before the form HTML instead.
 
     <link type="text/css" rel="stylesheet" href="/path/to/jquery.monarch-booking.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
