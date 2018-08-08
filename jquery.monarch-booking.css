@@ -52,6 +52,7 @@
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
+input[type="submit"].bookingSubmit { width: 100%; }
 
 .bookingLegend,
 .bookingSubmit,
@@ -135,14 +136,14 @@ label.bookingFieldWrap i.material-icons {
   margin: 2px 0;
 }
 
-.bookingForm.long input[name=range] { width: 200px; }
+.bookingForm.long input[name=range] { width: 250px; }
 
 .bookingForm.long fieldset { margin: 0 10px; }
 
 .bookingForm.long .bookingFieldWrap,
 .bookingForm.long .bookingField,
 .bookingForm.long .bookingSubmit {
-  width: auto;
+  width: auto !important;
 }
 
 .bookingForm.long .bookingField { margin-bottom: 0; }
@@ -150,15 +151,15 @@ label.bookingFieldWrap i.material-icons {
 /* Calendar */
 .bookingCalendar {
   position: absolute;
-  top: 0;
-  left: 100%;
-  margin-left: 10px;
+  top: -1px;
+  right: 100%;
+  margin-right: 10px;
   z-index: 1000;
 }
 
 .bookingForm.long .bookingCalendar {
   top: 100%;
-  left: 0;
+  left: -1px;
   margin-left: 0;
   margin-top: 10px;
 }
