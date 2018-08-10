@@ -15,9 +15,22 @@ var MonarchBooking;
     init : function(options){
       var _this = this;
       $.extend(this.options, options || {});
+      this.setDateRanges();
       this.loadDependencies().done(function(){
         _this.buildInstances();
       });
+    },
+
+    // Set date ranges immediately before we load moment.js or other dependencies
+    setDateRanges : function(){
+      var start = new Date(),
+          end = new Date();
+
+      end.setDate(end.getDate() + 1);
+      start = [start.getMonth()+1, start.getDate(), start.getFullYear()].join("/");
+      end = [end.getMonth()+1, end.getDate(), end.getFullYear()].join("/");
+
+      $('.bookingForm input[name=range]').val(start + " - " + end);
     },
 
     loadDependencies : function(){
@@ -50,8 +63,8 @@ var MonarchBooking;
         monthSelect: true,
         yearSelect: true,
         minDays: 2,
-        startDate: moment().add(1, 'day').format(this.options.dateFormat),
-        endDate: moment().add(500, 'day').format(this.options.dateFormat),
+        startDate: moment().toDate(),
+        endDate: moment().add(500, 'day').toDate(),
         customArrowPrevSymbol: '<i class="material-icons">arrow_back</i>',
         customArrowNextSymbol: '<i class="material-icons">arrow_forward</i>',
         setValue: function(range){

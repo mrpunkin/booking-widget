@@ -1,4 +1,4 @@
-@import "daterangepicker.min.css";
+@import url("//www.monarch.prowebsitesamples.com/booking/daterangepicker.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .bookingForm {
@@ -8,7 +8,6 @@
   padding: 20px;
   display: inline-block;
   background: #fff;
-  border: 1px solid #000;
   width: 100%;
 }
 
@@ -34,30 +33,29 @@
   display: block;
   color: #000;
   margin-bottom: 15px;
+  font-weight: 700;
 }
 
 .bookingLabel { display: none; }
 
 .bookingField,
+.bookingSubmit,
 .bookingSubmit {
   display: block;
   box-sizing: border-box;
-  padding: 8px;
   border: 0;
   background: #fff;
   margin: 0 0 5px 0;
   width: 100%;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
-input[type="submit"].bookingSubmit { width: 100%; }
 
 .bookingLegend,
 .bookingSubmit,
 .bookingSub {
-  font-weight: bolder;
   text-transform: uppercase;
 }
 
@@ -101,11 +99,9 @@ label.bookingFieldWrap i.material-icons {
   color: #666;
 }
 
-.bookingSubmit {
-  background: #8c0731;
-  color: #fff;
-  padding: 9px 16px;
-  border: 0;
+input[type="submit"].bookingSubmit {
+  width: 100%;
+  border: 1px solid transparent;
 }
 
 .bookingSub {
@@ -121,8 +117,9 @@ label.bookingFieldWrap i.material-icons {
   display: block;
   box-sizing: border-box;
   text-align: center;
-  padding: 16px 20px;
+  padding: 0;
   max-width: 720px;
+  margin-bottom: 5px;
 }
 
 .bookingForm.long fieldset,
@@ -138,35 +135,59 @@ label.bookingFieldWrap i.material-icons {
 
 .bookingForm.long input[name=range] { width: 250px; }
 
-.bookingForm.long fieldset { margin: 0 10px; }
+.bookingForm.long fieldset {
+  padding-top: 2em;
+  margin: 0;
+  width: 100%;
+}
 
 .bookingForm.long .bookingFieldWrap,
 .bookingForm.long .bookingField,
 .bookingForm.long .bookingSubmit {
-  width: auto !important;
+  width: auto;
+}
+
+.bookingForm.long input[type="submit"].bookingSubmit {
+  line-height: 25px;
+  position: relative;
 }
 
 .bookingForm.long .bookingField { margin-bottom: 0; }
 
+.bookingForm.long .bookingLegend {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  margin-right: .5em;
+}
+
+.bookingForm.long .bookingSub {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: .5em;
+}
+
 /* Calendar */
 .bookingCalendar {
   position: absolute;
-  top: -1px;
+  top: 0;
   right: 100%;
   margin-right: 10px;
   z-index: 1000;
+  border: 0;
 }
 
 .bookingForm.long .bookingCalendar {
   top: 100%;
-  left: -1px;
+  left: 0;
   margin-left: 0;
   margin-top: 10px;
 }
 
 .date-picker-wrapper {
   background-color: #fff !important;
-  border: 1px solid #000 !important;
+  border: 1px solid #ddd !important;
   box-shadow: none !important;
   padding: 5px !important;
 }
@@ -175,6 +196,8 @@ label.bookingFieldWrap i.material-icons {
   border: none !important;
   margin: 0 !important;
 }
+
+.date-picker-wrapper table { margin-bottom: 0; }
 
 .date-picker-wrapper table .caption .next .material-icons,
 .date-picker-wrapper table .caption .prev .material-icons { font-size: 16px; }
