@@ -190,6 +190,9 @@ input[type="submit"].bookingSubmit {
   border: 1px solid #999 !important;
   box-shadow: none !important;
   padding: 5px !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .date-picker-wrapper .month-wrapper {
