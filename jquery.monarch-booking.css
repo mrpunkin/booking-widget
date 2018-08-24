@@ -86,7 +86,7 @@ select.bookingField {
   padding-right: 29px;
 }
 
-label.bookingFieldWrap i.material-icons {
+label.bookingFieldWrap > i.material-icons {
   position: absolute;
   top: 50%;
   margin-top: -12px;
@@ -169,23 +169,13 @@ input[type="submit"].bookingSubmit {
 }
 
 /* Calendar */
-.bookingCalendar {
+.date-picker-wrapper,
+.date-picker-wrapper.inline-wrapper {
   position: absolute;
   top: 0;
   right: 100%;
   margin-right: 10px;
   z-index: 1000;
-  border: 0;
-}
-
-.bookingForm.long .bookingCalendar {
-  top: 100%;
-  left: 0;
-  margin-left: 0;
-  margin-top: 10px;
-}
-
-.date-picker-wrapper {
   background-color: #fff !important;
   border: 1px solid #999 !important;
   box-shadow: none !important;
@@ -193,6 +183,16 @@ input[type="submit"].bookingSubmit {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+}
+
+.bookingForm.long .date-picker-wrapper,
+.bookingForm.long .date-picker-wrapper.inline-wrapper
+ {
+  top: 100%;
+  left: 0;
+  right: auto;
+  margin-left: 0;
+  margin-top: 10px;
 }
 
 .date-picker-wrapper .month-wrapper {

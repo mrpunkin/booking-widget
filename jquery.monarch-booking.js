@@ -55,17 +55,17 @@ var MonarchBooking;
       var $parent = $(parent);
 
       // Position even with input on portrait version
-      if($parent.hasClass('long')){
-        var left = $parent.find('[name=range]').offset().left - $parent.offset().left;
-        $parent.find('.bookingCalendar').css({left: left});
-      }else{
-        var top = $parent.find('[name=range]').offset().top - $parent.offset().top;
-        $parent.find('.bookingCalendar').css({top: top});
-      }
+      // if($parent.hasClass('long')){
+      //   var left = $parent.find('[name=range]').offset().left - $parent.offset().left;
+      //   $parent.find('.bookingCalendar').css({left: left});
+      // }else{
+      //   var top = $parent.find('[name=range]').offset().top - $parent.offset().top;
+      //   $parent.find('.bookingCalendar').css({top: top});
+      // }
 
       $parent.find('[name=range]').dateRangePicker({
         inline: true,
-        container: $parent.find('.bookingCalendar'),
+        container: $parent.find('[name=range]').parent(),
         autoClose: true,
         format: this.options.dateFormat,
         separator: ' - ',
