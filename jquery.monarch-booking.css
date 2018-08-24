@@ -186,8 +186,7 @@ input[type="submit"].bookingSubmit {
 }
 
 .bookingForm.long .date-picker-wrapper,
-.bookingForm.long .date-picker-wrapper.inline-wrapper
- {
+.bookingForm.long .date-picker-wrapper.inline-wrapper {
   top: 100%;
   left: 0;
   right: auto;
@@ -217,3 +216,32 @@ input[type="submit"].bookingSubmit {
 .date-picker-wrapper .month-wrapper table .day.hovering { background-color: #e0e0e0 !important; }
 .date-picker-wrapper .month-wrapper table .day.first-date-selected,
 .date-picker-wrapper .month-wrapper table .day.last-date-selected { background-color: #8c0731 !important; }
+
+@media only screen and (max-width: 480px) {
+  .date-picker-wrapper,
+  .date-picker-wrapper.inline-wrapper,
+  .bookingForm.long .date-picker-wrapper,
+  .bookingForm.long .date-picker-wrapper.inline-wrapper {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    margin: 0;
+  }
+
+  .date-picker-wrapper .month-wrapper table {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width:481px) and (max-width: 1023px) {
+  .date-picker-wrapper,
+  .date-picker-wrapper.inline-wrapper {
+    top: 100%;
+    left: 0;
+    right: auto;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
