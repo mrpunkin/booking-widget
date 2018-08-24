@@ -3,7 +3,6 @@
   <style type="text/css">
     body {
       position: relative;
-      padding: 50px;
       margin: 0;
       font: normal normal 12px/16px Verdana, Arial, sans-serif;
       background: rgb(30,30,30);
@@ -13,16 +12,19 @@
       background-size: cover;
     }
 
-    #landscape {
+    section {
       float: left;
-      max-width: 720px;
-      height: 200px;
+      height: 100%;
+      padding: 20px;
     }
+    section:first-of-type { width: 66%; }
+    section:last-of-type { width: 33%; }
 
-    #portrait {
-      float: right;
-      width: 300px;
-      height: 300px;
+    @media screen and (max-width: 480px){
+      section {
+        float: none;
+        width: 100% !important;
+      }
     }
   </style>
   <link rel="stylesheet" id="education-pro-theme-css" href="http://www.monarch.prowebsitesamples.com/wp-content/themes/education-pro/style.css?ver=3.0.2" type="text/css" media="all">
@@ -30,7 +32,7 @@
   <link rel="stylesheet" id="google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Condensed%3A300%2C700&amp;ver=3.0.2" type="text/css" media="all">
 </head>
 <body>
-  <div id="landscape">
+  <section>
     <form action="https://gc.synxis.com/rez.aspx" class="bookingForm long">
       <strong class="bookingLegend">Book Your Room</strong>
       <fieldset>
@@ -69,8 +71,8 @@
       </fieldset>
       <a href="tel:1-800-492-8700" class="bookingSub phone" role="link" aria-label="Call to Book">1-800-492-8700</a>
     </form>
-  </div>
-  <div id="portrait">
+  </section>
+  <section>
     <form action="https://gc.synxis.com/rez.aspx" class="bookingForm">
       <strong class="bookingLegend">Book Your Room</strong>
       <fieldset>
@@ -109,7 +111,7 @@
       </fieldset>
       <a href="tel:1-800-492-8700" class="bookingSub phone" role="link" aria-label="Call to Book">1-800-492-8700</a>
     </form>
-  </div>
+  </section>
 
   <!-- Required Libraries -->
   <link type="text/css" rel="stylesheet" href="./jquery.monarch-booking.css" />

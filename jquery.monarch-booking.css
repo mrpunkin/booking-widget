@@ -113,59 +113,62 @@ input[type="submit"].bookingSubmit {
 }
 
 /* Long Version */
-.bookingForm.long {
-  display: block;
-  box-sizing: border-box;
-  text-align: center;
-  padding: 0;
-  max-width: 720px;
-  margin-bottom: 5px;
-}
+/* Only applies beyond 480px wide */
+@media screen and (min-width: 481px) {
+  .bookingForm.long {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0;
+    max-width: 720px;
+    margin-bottom: 5px;
+  }
 
-.bookingForm.long fieldset,
-.bookingForm.long .bookingLegend,
-.bookingForm.long .bookingFieldWrap,
-.bookingForm.long .bookingSubmit,
-.bookingForm.long .bookingSub {
-  width: auto;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 2px 0;
-}
+  .bookingForm.long fieldset,
+  .bookingForm.long .bookingLegend,
+  .bookingForm.long .bookingFieldWrap,
+  .bookingForm.long .bookingSubmit,
+  .bookingForm.long .bookingSub {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 2px 0;
+  }
 
-.bookingForm.long input[name=range] { width: 250px; }
+  .bookingForm.long input[name=range] { width: 250px; }
 
-.bookingForm.long fieldset {
-  padding-top: 2em;
-  margin: 0;
-  width: 100%;
-}
+  .bookingForm.long fieldset {
+    padding-top: 2em;
+    margin: 0;
+    width: 100%;
+  }
 
-.bookingForm.long .bookingFieldWrap,
-.bookingForm.long .bookingField,
-.bookingForm.long .bookingSubmit {
-  width: auto;
-}
+  .bookingForm.long .bookingFieldWrap,
+  .bookingForm.long .bookingField,
+  .bookingForm.long .bookingSubmit {
+    width: auto;
+  }
 
-.bookingForm.long input[type="submit"].bookingSubmit {
-  line-height: 25px;
-  position: relative;
-}
+  .bookingForm.long input[type="submit"].bookingSubmit {
+    line-height: 25px;
+    position: relative;
+  }
 
-.bookingForm.long .bookingField { margin-bottom: 0; }
+  .bookingForm.long .bookingField { margin-bottom: 0; }
 
-.bookingForm.long .bookingLegend {
-  position: absolute;
-  top: 0;
-  right: 50%;
-  margin-right: .5em;
-}
+  .bookingForm.long .bookingLegend {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    margin-right: .5em;
+  }
 
-.bookingForm.long .bookingSub {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: .5em;
+  .bookingForm.long .bookingSub {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: .5em;
+  }
 }
 
 /* Calendar */
@@ -227,6 +230,13 @@ input[type="submit"].bookingSubmit {
     left: 10px;
     right: 10px;
     margin: 0;
+    -webkit-box-shadow: 0 0 25px rgba(0,0,0,0.3) !important;
+    -moz-box-shadow: 0 0 25px rgba(0,0,0,0.3) !important;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3) !important;
+  }
+
+  .date-picker-wrapper .month-wrapper {
+    width: 100% !important;
   }
 
   .date-picker-wrapper .month-wrapper table {
