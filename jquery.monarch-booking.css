@@ -5,7 +5,7 @@
   position: relative;
   text-align: center;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   display: inline-block;
   background: #fff;
   width: 100%;
@@ -187,7 +187,7 @@ input[type="submit"].bookingSubmit {
 
 .date-picker-wrapper {
   background-color: #fff !important;
-  border: 1px solid #ddd !important;
+  border: 1px solid #999 !important;
   box-shadow: none !important;
   padding: 5px !important;
 }
